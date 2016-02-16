@@ -1,0 +1,77 @@
+using System;
+
+namespace MethodApp
+{
+	public class MethodApp
+	{
+		public static void Main (string[] args)
+		{
+			Console.WriteLine ("Welcome to MethodApp");
+			int[] data = { 10, 20, 30, 40, 50 };
+			DisplayNumbers (data);
+			int min = CalculateMin (data);
+			int max = CalculateMax (data);
+			int mean = CalculateMean (data);
+			Console.WriteLine ("Min is {0} ", min);
+			Console.WriteLine ("Max is {0}", max);
+			Console.WriteLine ("Mean is {0}", mean);
+
+			data [1] = 4;
+			data [3] = 90;
+			DisplayNumbers (data);
+			min = CalculateMin (data);
+			max = CalculateMax (data);
+			mean = CalculateMean (data);
+			Console.WriteLine ("Min is {0} ", min);
+			Console.WriteLine ("Max is {0}", max);
+			Console.WriteLine ("Mean is {0}", mean);
+
+			Console.Write ("\nPress RETURN to continue");
+			Console.Read ();
+
+		}
+
+		public static void DisplayNumbers (int[] numbers)
+		{
+			//display 5 numbers to user
+			Console.WriteLine ("\nThe numbers are: ");
+			for (int i = 0; i < 5; ++i) {
+				Console.WriteLine (numbers [i]);
+			}
+			Console.WriteLine ();
+		}
+
+		public static int CalculateMin (int[] numbers)
+		{
+			int min = numbers [0];
+			for (int i = 1; i < 5; ++i) {
+				if (numbers [i] < min) {
+					min = numbers [i];
+				}
+			}
+			return min;
+		}
+
+		public static int CalculateMax (int[] numbers)
+		{
+			int max = numbers [0];
+			for (int i = 1; i < 5; i++) {
+				if (numbers [i] > max) {
+					max = numbers [i];
+				}
+			}
+			return max;
+		}
+
+		public static int CalculateMean (int[] numbers)
+		{
+			int mean = 0;
+			int sumTotal = 0;
+			for (int i = 0; i < 5; i++) {
+				sumTotal += numbers [i];
+				mean = sumTotal / numbers.Length;
+			}
+			return mean;
+		}
+	}
+}
